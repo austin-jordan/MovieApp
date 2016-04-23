@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+     <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+     <link href='style.css' rel='stylesheet' type='text/css' />
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <div class="main" ng-controller="MainController">
+      <div class = "container">
+        <h2> {{ title }}</h2>
+        <h3> {{ promo }}</h3>
+      </div>
+
+    <div ng-repeat="result in lastYear.results" class="col-md-4">
+    <div class = "thumbnail">
+      <img ng-src= "{{ result.poster_path }}" />
+      <p class = "title">
+        {{ result.original_title }}
+      </p>
+      <p class = "release_date">
+        {{ result.release_date | date }}
+      </p>
+      <p class = "voting">
+        {{ result.vote_average }}
+      </p>
+    </div>
+    </div>
+    </div>
+    <!-- <div class ="rating">
+      <p class="likes" ng-click="plusOne($index)">
+        + {{ product.likes }}
+      </p>
+      <p class = "dislikes" ng-click="minusOne($index)">
+        + {{ product.dislikes }}
+      </p>
+    </div> -->
+
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers/MainController.js"></script>
+
+    <script src="js/services/discover.js"></script>
+
+  </body>
+</html>
